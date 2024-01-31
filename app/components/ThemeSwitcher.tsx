@@ -1,13 +1,20 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BiMoon, BiSun } from "react-icons/bi";
 
 type Props = {};
 
 const ThemeSwitcher = (props: Props) => {
+  const [mount, setMount] = useState(false);
   const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    setMount(true);
+  }, []);
+
+  if (!mount) return null;
 
   return (
     <>
