@@ -5,6 +5,7 @@ import { Josefin_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProviders } from "./utils/ThemeProviders";
 import { ThemeProvider } from "next-themes";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const poppins = Poppins({ 
   subsets: ["latin"],
@@ -29,6 +30,7 @@ export default function RootLayout({
         <ThemeProviders>
           {children}
        </ThemeProviders>
+       <SpeedInsights/>
       </body>
     </html>
   );
