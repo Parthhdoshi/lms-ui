@@ -6,6 +6,7 @@ import "./globals.css";
 import { ThemeProviders } from "./utils/ThemeProviders";
 import { ThemeProvider } from "next-themes";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from '@vercel/analytics/react';
 
 const poppins = Poppins({ 
   subsets: ["latin"],
@@ -30,7 +31,10 @@ export default function RootLayout({
         <ThemeProviders>
           {children}
        </ThemeProviders>
+       {/* Vercel App  */}
        <SpeedInsights/>
+       <Analytics />
+      
       </body>
     </html>
   );
