@@ -1,13 +1,17 @@
-"use Client"
-import React,{ FC, useState, useId } from "react";
+"use client";
+import React, { FC, useId, useState } from "react";
 import Heading from "./utils/Heading";
+import Header from "./components/Header";
+import { useTheme } from "next-themes";
 
-interface Props {
+interface Props {}
 
-}
+const Page: FC<Props> = (props) => {
+  const [open, setOpen] = useState(false);
+  const [activeItem, setActiveItem] = useState(0);
+  const { theme, setTheme } = useTheme()
 
-const Page:FC<Props> = (props) => {
-  const id = useId()
+  const id = useId();
   return (
     <div>
       <Heading
@@ -16,9 +20,9 @@ const Page:FC<Props> = (props) => {
         keywords="Programming"
         key={id}
       />
-      Hello World
+      <Header open={open} setOpen={setOpen} activeItem={activeItem} />
     </div>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;
